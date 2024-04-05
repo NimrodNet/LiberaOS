@@ -1,6 +1,6 @@
-# RubinOS
+# LiberaOS
 
-RubinOS to system operacyjny napisany w języku Python.
+LiberaOS to system operacyjny napisany w języku Python.
 
 # Profanum - dla zwykłych osób
 
