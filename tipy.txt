@@ -1,0 +1,7 @@
+# Import ścieżki w Pythonie
+import sys
+sys.path.append('../parentdirectory')
+from parentdirectory.geeks import geek_method
+ 
+# using
+geek_method()

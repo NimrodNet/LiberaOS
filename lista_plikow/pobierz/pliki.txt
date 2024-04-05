@@ -1,0 +1,4 @@
+/home/qwerty891/RubinOS/lista_plikow/pobierz/pliki/
+/home/qwerty891/RubinOS/lista_plikow/pobierz/pliki/folder
+/home/qwerty891/RubinOS/lista_plikow/pobierz/pliki/folder/plik.txt
+/home/qwerty891/RubinOS/lista_plikow/pobierz/pliki/plik1.txt
