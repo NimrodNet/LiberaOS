@@ -38,41 +38,40 @@ class Pobierz:
             for sciezka in sciezki:
                 etykieta = os.path.basename(sciezka)
                 etykiety.append(etykieta)
-                print(etykieta)
             return etykiety
         except:
-            print("Klasa Pobierz, metoda zwroc_etykiete_pliku(). \n" + 
-            "Nie można zwrócić etykiety pliku.")
+            print("Klasa Pobierz, metoda zwroc_etykiety_plikow(). \n" + 
+            "Nie można zwrócić etykiet plików.")
             return False
 
-    def zwroc_nazwy_plikow(self):
+    def ustaw_sciezki(self, numery_sciezek):
         try:
-            nazwy = []
-            etykiety = self.zwroc_etykiety_plikow(sciezki)
-            for etykieta in etykiety:
-                nazwy.append(etykieta[0])
-            return nazwy
-        except:
-            print("Klasa Pobierz, metoda zwroc_nazwy_plikow(). \n" + 
-            "Nie można zwrócić nazw plików.")
-            return False
-
-    def zwroc_element(self, indeks):
-        try:
-            self.ustaw(self.lista_plikow[indeks])
+            pliki = self.zwroc()
+            sciezki = []
+            liczba_sciezek = len(numery_sciezek)
+            for indeks in range(0, liczba_sciezek):
+                numer_sciezki = numery_sciezek[indeks]
+                sciezka = pliki[numer_sciezki]
+                sciezki.append(sciezka)
+            self.ustaw(sciezki)
             return self.zwroc()
         except:
-            print("Klasa Pobierz, metoda zwroc_element(). \n" + 
-            "Nie można zwrócić elementu listy.")
+            print("Klasa Pobierz, metoda ustaw_sciezki(). \n" + 
+            "Nie można ustawić ścieżek.")
             return False
 
-    def zwroc_sciezke(self, indeks, numer_sciezki):
+    def ustaw_sciezki_z_zakresu(self, od, do):
         try:
-            self.ustaw([self.lista_plikow[indeks][numer_sciezki]])
+            pliki = self.zwroc()
+            sciezki = []
+            zakres = []
+            for numer in range(od, do + 1):
+                zakres.append(numer)
+            self.ustaw_sciezki(zakres)
             return self.zwroc()
         except:
-            print("Klasa Pobierz, metoda zwroc_sciezki(). \n" + 
-            "Nie można zwrócić ścieżki.")
+            print("Klasa Pobierz, metoda ustaw_sciezki_z_zakresu(). \n" + 
+            "Nie można ustawić ścieżek z zakresu.")
             return False
 
     def pobierz(self, sciezki, wszystkie = True):
@@ -85,7 +84,8 @@ class Pobierz:
            for sciezka in lista_sciezek:
                sciezka = os.path.abspath(sciezka) + "/"
                pliki = glob.glob(sciezka + "**", recursive = wszystkie)
-               lista_plikow.append(pliki)
+               for plik in pliki:
+                   lista_plikow.append(plik)
            self.ustaw(lista_plikow)
            return self.zwroc()
         except:
@@ -93,28 +93,11 @@ class Pobierz:
             "Nie udało się pobrać listy plików.")
             return False
 
-    def sortuj(self):
+    def sortuj(self, odwrotnie=False):
         try:
            pliki = self.zwroc()
-           lista_plikow = []
-           for sciezki in pliki:
-               sciezki.sort()
-               lista_plikow.append(sciezki)
-           self.ustaw(lista_plikow)
-           return self.zwroc()
-        except:
-            print("Klasa Pobierz, metoda sortuj(). \n" +
-            "Nie udało się posortować listy plików.")
-            return False
-
-    def sortuj_odwrotnie(self):
-        try:
-           pliki = self.zwroc()
-           lista_plikow = []
-           for sciezki in pliki:
-               sciezki.sort(reverse = True)
-               lista_plikow.append(sciezki)
-           self.ustaw(lista_plikow)
+           pliki.sort(reverse=odwrotnie)
+           self.ustaw(pliki)
            return self.zwroc()
         except:
             print("Klasa Pobierz, metoda sortuj(). \n" +
