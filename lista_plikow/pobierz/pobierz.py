@@ -45,6 +45,18 @@ class Pobierz:
             "Nie można zwrócić etykiety pliku.")
             return False
 
+    def zwroc_nazwy_plikow(self):
+        try:
+            nazwy = []
+            etykiety = self.zwroc_etykiety_plikow(sciezki)
+            for etykieta in etykiety:
+                nazwy.append(etykieta[0])
+            return nazwy
+        except:
+            print("Klasa Pobierz, metoda zwroc_nazwy_plikow(). \n" + 
+            "Nie można zwrócić nazw plików.")
+            return False
+
     def zwroc_element(self, indeks):
         try:
             self.ustaw(self.lista_plikow[indeks])
