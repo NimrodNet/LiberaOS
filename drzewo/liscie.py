@@ -1,7 +1,7 @@
-class Liscie:
+class Lisc:
 
     def __init__(self):
         self.inicjuj()
 
     def inicjuj(cls):
-        print("Liście.")
+        print("Liść.")
