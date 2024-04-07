@@ -8,3 +8,6 @@ class Drzewo:
     def inicjuj(self):
         print("Drzewo.")
         self.korzen = Korzen()
+
+    def zwroc_korzen(self):
+        return self.korzen

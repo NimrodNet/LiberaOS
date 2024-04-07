@@ -8,3 +8,6 @@ class Korzen:
     def inicjuj(self):
         print("Korzeń.")
         self.pien = Pien()
+
+    def zwroc_pien(self):
+        return self.pien
