@@ -5,3 +5,4 @@ class Owoc:
 
     def inicjuj(cls):
         print("Owoc.")
+        self.wartosc = 10
