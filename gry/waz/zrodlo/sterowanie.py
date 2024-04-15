@@ -1,51 +1,5 @@
 class Sterowanie:
 
-    def __init__(self):
-        self.inicjuj()
-
-    def inicjuj(self):
-        try:
-            self.historia_kierunkow = []
-            self.dodaj_kierunek(self.zwroc_kierunek_w_prawo())
-            return True
-        except:
-            print("Klasa Sterowanie, metoda inicjuj(). \n" +
-            "Nie można zainicjować modułu.")
-            return False
-
-    def zwroc_historie_kierunkow(self):
-        try:
-            return self.historia_kierunkow
-        except:
-            print("Klasa Sterowanie, metoda zwroc_historie_kierunkow(). \n" +
-            "Nie można zwrócić historii kierunków.")
-            return False
-
-    def dodaj_kierunek(self, kierunek):
-        try:
-            self.zwroc_historie_kierunkow().append(kierunek)
-            return True
-        except:
-            print("Klasa Sterowanie, metoda dodaj_kierunek(). \n" +
-            "Nie można dodać kierunku.")
-            return False
-
-    def zwroc_rozmiar_historii_kierunkow(self):
-        try:
-            return len(self.zwroc_historie_kierunkow())
-        except:
-            print("Klasa Sterowanie, metoda zwroc_rozmiar_historii_kierunkow(). \n" +
-            "Nie można zwrócić rozmiaru historii kierunków.")
-            return False
-
-    def zwroc_kierunek_w_prawo(cls):
-        try:
-            return [1, 0, 0, 0]
-        except:
-            print("Klasa Sterowanie, metoda zwroc_kierunek_w_prawo(). \n" +
-            "Nie można zwrócić kierunku w prawo.")
-            return False
-
     def uruchom_sterowanie(self, gra, kierunek):
         try:
             nacisnieto = gra.key.get_pressed()
@@ -70,16 +24,12 @@ class Sterowanie:
                         kierunek_w_lewo]
             if do_przodu:
                 kierunek = kierunki[0]
-                self.dodaj_kierunek(kierunek)
             if do_tylu:
                 kierunek = kierunki[1]
-                self.dodaj_kierunek(kierunek)
             if w_prawo:
                 kierunek = kierunki[2]
-                self.dodaj_kierunek(kierunek)
             if w_lewo:
                 kierunek = kierunki[3]
-                self.dodaj_kierunek(kierunek)
             return kierunek
         except:
             print("Klasa Sterowanie, metoda uruchom_sterowanie(). \n" +
