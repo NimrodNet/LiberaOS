@@ -1,4 +1,9 @@
+from zrodlo.tablice.tablica import *
+
 class Sterowanie:
+
+    def __init__(self):
+        self.kierunki = Tablica()
 
     def uruchom_sterowanie(self, gra, kierunek):
         try:
@@ -22,14 +27,20 @@ class Sterowanie:
             kierunek_w_lewo = [-1, 0, 0, 0]
             kierunki = [kierunek_do_gory, kierunek_w_dol, kierunek_w_prawo,
                         kierunek_w_lewo]
+            ostatni_kierunek = self.kierunki.ostatni()
             if do_przodu:
-                kierunek = kierunki[0]
+                if ostatni_kierunek != kierunek_w_dol:
+                    kierunek = kierunek_do_gory
             if do_tylu:
-                kierunek = kierunki[1]
+                if ostatni_kierunek != kierunek_do_gory:
+                    kierunek = kierunek_w_dol
             if w_prawo:
-                kierunek = kierunki[2]
+                if ostatni_kierunek != kierunek_w_lewo:
+                    kierunek = kierunek_w_prawo
             if w_lewo:
-                kierunek = kierunki[3]
+                if ostatni_kierunek != kierunek_w_prawo:
+                    kierunek = kierunek_w_lewo
+            self.kierunki.dodaj(kierunek)
             return kierunek
         except:
             print("Klasa Sterowanie, metoda uruchom_sterowanie(). \n" +

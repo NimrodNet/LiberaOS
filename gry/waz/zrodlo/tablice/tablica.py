@@ -34,3 +34,28 @@ class Tablica:
         except:
             print("Klasa Tablica, metoda wyswiet(). Nie można wyświetlić elementów.")
             return False
+
+    def indeks(self, numer):
+        try:
+            return self.zwroc()[numer]
+        except:
+            print("Klasa Tablica, metoda indeks(). Nie można zwrócić elementu.")
+            return False
+
+    def pierwszy(self):
+        try:
+            return self.indeks(0)
+        except:
+            print("Klasa Tablica, metoda pierwszy()." + 
+            "Nie można zwrócić pierwszego elementu.")
+            return False
+
+    def ostatni(self):
+        try:
+            dlugosc = len(self.zwroc())
+            numer = dlugosc - 1
+            return self.indeks(numer)
+        except:
+            print("Klasa Tablica, metoda ostatni()." + 
+            "Nie można zwrócić pierwszego elementu.")
+            return False

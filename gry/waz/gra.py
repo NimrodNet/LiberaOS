@@ -87,7 +87,7 @@ class Gra:
                 wyswietlacz.fill("black")
                 kierunek = sterowanie.uruchom_sterowanie(gra, kierunek)
                 if indeks % 104 == 0:
-                    print("Wunsz")
+                    print(kierunek)
                     indeks = 0
                 gra.display.flip()
                 czestotliwosc = self.zwroc_czestotliwosc()
