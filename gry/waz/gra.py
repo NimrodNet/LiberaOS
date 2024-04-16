@@ -1,6 +1,7 @@
 import pygame
 from zrodlo.rozdzielczosc import *
 from zrodlo.sterowanie import *
+from zrodlo.odwzorowania.waz.waz import *
 
 class Gra:
 
@@ -80,11 +81,12 @@ class Gra:
             kierunek = [1, 0, 0, 0]
             indeks = 0
             sterowanie = Sterowanie()
+            kolory = ["red", "green", "blue", "white", "black"]
+            wyswietlacz.fill(kolory[4])
             while flaga_gry:
                 for wydarzenie in gra.event.get():
                     if wydarzenie.type == gra.QUIT:
                         flaga_gry = False
-                wyswietlacz.fill("black")
                 kierunek = sterowanie.uruchom_sterowanie(gra, kierunek)
                 if indeks % 104 == 0:
                     print(kierunek)
