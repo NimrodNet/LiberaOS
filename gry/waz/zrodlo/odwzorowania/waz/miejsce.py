@@ -8,7 +8,8 @@ class Miejsce:
             wartosc = [1]
             x = [0]
             y = [0]
-            self.miejsce = [wartosc, x, y]
+            kierunek = [1, 0, 0, 0]
+            self.miejsce = [wartosc, x, y, kierunek]
             return True
         except:
             print("Klasa Miejsce, metoda inicjuj()." + 
